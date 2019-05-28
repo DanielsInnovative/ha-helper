@@ -1,0 +1,23 @@
+<?php
+  class helper_tivo {
+    public $version = "1.0";
+    public $output = "";
+
+    function check_dependencies() {
+      return(true);
+    }
+
+    function check_command($cmd) {
+      return(true);
+    }
+
+    function execute_command($host, $cmd) {
+      $exec = sprintf("echo \"%s\" | /usr/bin/telnet %s 31339", $cmd, $host);
+      if (explode(" ", $cmd)[0] == "FORCECH" || explode(" ", $cmd)[0] == "SETCH") $exec = sprintf("echo \"TELEPORT LIVETV\" | /usr/bin/telnet %s 31339", $host)." ; /bin/sleep .1 ; ".$exec;
+      exec($exec, $response["data"]);
+    }
+
+  }
+
+  $helper = new helper_tivo;
+?>

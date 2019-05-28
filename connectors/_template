@@ -1,0 +1,26 @@
+<?php
+  // replace "DEVICE" with name of new device. file should be saved using the same name (case sensitive)
+  class helper_DEVICE {
+    public $version = "1.0";
+    public $output = "";
+
+    function check_dependencies() {
+      // any dependencies should be checked here and return either true or false
+      return(true);
+    }
+
+    function check_command($cmd) {
+      // any additional sanity checking for command should be done here. return false if command is not sane.
+      return(true);
+    }
+
+    function execute_command($host, $cmd) {
+      // execute the actual command here. typically, this will be an "exec", results from exec copied to public variable "output"
+      exec($exec, $output);
+    }
+
+  }
+
+  // replace "DEVICE" with name of new device
+  $helper = new helper_DEVICE;
+?>

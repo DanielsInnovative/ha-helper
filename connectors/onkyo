@@ -1,0 +1,24 @@
+<?php
+  class helper_onkyo {
+    public $version = "1.0";
+    public $output = "";
+
+    function check_dependencies() {
+      if (!file_exists("/usr/local/bin/onkyo")) return(false);
+      return(true);
+    }
+
+    function check_command($cmd) {
+      if (!in_array(substr($cmd, 0, 3), [ "AMT", "MVL", "PWR", "SLI", "TUN" ])) return(false);
+      return(true);
+    }
+
+    function execute_command($host, $cmd) {
+      $exec = sprintf("/usr/local/bin/onkyo --host=%s %s", $host, $cmd);
+      exec($exec, $output);
+    }
+
+  }
+
+  $helper = new helper_onkyo;
+?>
