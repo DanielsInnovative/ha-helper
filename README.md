@@ -26,4 +26,5 @@ As noted above, this script is not designed to be bulletproof or even bullet-res
   <li>Install on a dedicated device like a Raspberry Pi. You may not be able to prevent a compromise, but you can (somewhat) contain the impact.</li>
   <li>Restrict Apache to allow only specific IP addresses to run the script.</li>
   <li>Restrict access to the system to certain IP addresses using a built-in firewall.</li>
+  <li>Put the script on the same system as your HADashboard and restrict it to localhost.</li>
 </ul>
