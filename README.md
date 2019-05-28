@@ -19,4 +19,11 @@ Download the package, unzip, run the install script from the unzipped directory:
 The shell script will create the required directories (connectors are installed to /var/lib/ha-helper/connectors) and will install ha-helper.php to the root of your apache directory (/var/www/html).<br/><br/>
 This was developed and tested on Ubuntu 18.04. It <i>should</i> work in other distros, but default directories may be different.<br/><br/>
 <h2>Dependencies</h2>
-The php script itself does not have any dependencies other than PHP (Apache). The connectors, however, will often depend on other command-line utilities which may have dependenices themselves. For example, the Onkyo connector depends on the onkyo python script, <a href='https://github.com/miracle2k/onkyo-eiscp'>Onkyo eISCP Control</a>. I leave it to connector builder to document the connector dependencies as needed.
+The php script itself does not have any dependencies other than PHP (Apache). The connectors, however, will often depend on other command-line utilities which may have dependenices themselves. For example, the Onkyo connector depends on the onkyo python script, <a href='https://github.com/miracle2k/onkyo-eiscp'>Onkyo eISCP Control</a>. I leave it to connector builder to document the connector dependencies as needed.<br/><br/>
+<h2>Improving Security</h2>
+As noted above, this script is not designed to be bulletproof or even bullet-resistant. So, some things you might consider to improve security and mitigate risk if it is compromised:
+<ul>
+  <li>Install on a dedicated device like a Raspberry Pi. You may not be able to prevent a compromise, but you can (somewhat) contain the impact.</li>
+  <li>Restrict Apache to allow only specific IP addresses to run the script.</li>
+  <li>Restrict access to the system to certain IP addresses using a built-in firewall.</li>
+</ul>
